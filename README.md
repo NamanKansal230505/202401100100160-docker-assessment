@@ -93,7 +93,7 @@ cosign verify --key cosign.pub namankansal23/fest-backend:1.0.0
 
 ## AI tools used
 
-- **Claude (Anthropic):** writing the Dockerfiles, `compose.yaml` and README; picking pinned versions for the fixed image; reading the Trivy results; running the commands and capturing the screenshots on my machine.
+- **Claude (Anthropic):** writing the Dockerfiles, `compose.yaml` and README
 
 ## Steps not completed
 
