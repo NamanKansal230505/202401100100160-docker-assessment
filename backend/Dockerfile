@@ -12,16 +12,8 @@ RUN pip install --prefix=/install -r requirements.txt
 # ---- runtime stage: no pip, no build tools, non-root ----
 FROM python:3.14.10-slim-trixie
 
-ARG APP_VERSION=dev
-
-LABEL org.opencontainers.image.title="fest-backend" \
-      org.opencontainers.image.description="FestPass registration API" \
-      org.opencontainers.image.version="${APP_VERSION}" \
-      org.opencontainers.image.source="https://github.com/NamanKansal230505/202401100100160-docker-assessment"
-
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    APP_VERSION=${APP_VERSION}
+    PYTHONUNBUFFERED=1
 
 # Pick up Debian security fixes published after the base image was built, drop pip
 # (its vendored urllib3/msgpack carry HIGH CVEs and it is not needed at runtime),
@@ -39,6 +31,15 @@ COPY --from=build /install /usr/local
 WORKDIR /app
 # Application code changes most often, so it is copied last.
 COPY app.py .
+
+# Release version, set at build time: docker build --build-arg APP_VERSION=1.0.0 ...
+# Declared after the slow layers so a version bump does not invalidate them.
+ARG APP_VERSION=dev
+ENV APP_VERSION=${APP_VERSION}
+LABEL org.opencontainers.image.title="fest-backend" \
+      org.opencontainers.image.description="FestPass registration API" \
+      org.opencontainers.image.version="${APP_VERSION}" \
+      org.opencontainers.image.source="https://github.com/NamanKansal230505/202401100100160-docker-assessment"
 
 USER 10001:10001
 

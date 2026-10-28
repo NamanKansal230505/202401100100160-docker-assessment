@@ -25,7 +25,8 @@ services:
       start_period: 10s
 
   backend:
-    build: ./backend
+    # Released, Trivy-scanned image from Docker Hub (built from ./backend), never a local build.
+    image: namankansal23/fest-backend:1.0.0
     restart: unless-stopped
     environment:
       REGNO: "202401100100160"

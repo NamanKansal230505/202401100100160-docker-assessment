@@ -6,6 +6,15 @@
 | **REGNO** | 202401100100160 |
 | **PORT** | 8060 |
 
+## Stage 4: Released image
+
+| | |
+|---|---|
+| **Docker Hub repository** | [namankansal23/fest-backend](https://hub.docker.com/r/namankansal23/fest-backend) (public) |
+| **Tags** | `1.0.0`, `1.0` (never `latest`) |
+| **1.0.0 digest (as pushed)** | `sha256:dd8fcda1e1fd111d100744781434ea77dceb74b5f27a5976a73b79cb1d42cfcb` |
+| linux/amd64 manifest inside it | `sha256:125ac0c5991192edeb5b5ed81d5cfb8f517c4fa9ba88e10b44b5d20052d97540` |
+
 ## Stage 3: Trivy scan, before and after
 
 Scanned with Trivy 0.76.1 (`trivy image --scanners vuln`). Full reports: [`reports/trivy-before.txt`](reports/trivy-before.txt), [`reports/trivy-after.txt`](reports/trivy-after.txt).
