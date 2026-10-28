@@ -93,18 +93,7 @@ cosign verify --key cosign.pub namankansal23/fest-backend:1.0.0
 
 ## AI tools used
 
-AI assistance was permitted for this assessment, and I declare it in full here.
-
-**Claude Code (Anthropic, Claude Opus 5.5)** was my AI pair-engineer for the whole assessment, working under my direction:
-
-| Area | How it helped |
-|---|---|
-| Container engineering | Drafted the backend Dockerfile (both the Stage 1 build and the hardened multi-stage build), `.dockerignore`, `compose.yaml` and this README. |
-| Dependency research | Found current releases to pin: `python:3.14.10-slim-trixie`, Flask 3.1.3, Werkzeug 3.1.9 and psycopg2-binary 2.9.13. It checked that each has wheels for Python 3.14. |
-| Vulnerability triage | Summarised the 13,357-finding baseline report. It traced the HIGH findings that remained after the base-image switch to pip's vendored `urllib3`/`msgpack`, which led to the runtime image with no pip. It also confirmed that the 44 HIGH left have no upstream fix. |
-| Automation | Ran each stage's commands on my machine in PowerShell windows showing my REGNO prompt, and captured those windows as the evidence screenshots. |
-
-I provided my registration number, my own Docker Hub and GitHub accounts and sign-ins, and the direction of the work.
+- **Claude Code (Anthropic):** writing the Dockerfiles, `compose.yaml` and README; picking pinned versions for the fixed image; reading the Trivy results; running the commands and capturing the screenshots on my machine.
 
 ## Steps not completed
 
