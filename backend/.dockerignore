@@ -1,0 +1,27 @@
+# Keep the build context to requirements.txt and app.py only.
+Dockerfile
+.dockerignore
+
+# Python artefacts and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets must never be baked into an image
+.env
+.env.*
+*.key
+*.pem
+
+# VCS, editor and OS files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+*.log
